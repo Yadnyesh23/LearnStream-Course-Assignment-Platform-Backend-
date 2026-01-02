@@ -4,10 +4,26 @@ import connectDB from "./config/connectDB.js";
 import { ApiError } from "./utils/ApiError.js";
 
 dotenv.config();
+
+//App
 const app = express();
 
+// Port
 const port = process.env.PORT || 5000;
 
+// Middlerware 
+app.use(express.json())
+
+
+
+// Routes
+import {router as healthcheckRouter} from './routes/healthcheck.route.js'
+
+app.use('/api/v1/' , healthcheckRouter)
+
+
+
+// Server and Database connection
 const startServer = async () => {
   try {
     await connectDB();

@@ -18,8 +18,10 @@ app.use(express.json())
 
 // Routes
 import {router as healthcheckRouter} from './routes/healthcheck.route.js'
+import {router as authenticationRouter} from './routes/auth.route.js'
 
 app.use('/api/v1/' , healthcheckRouter)
+app.use('/api/v1/auth' , authenticationRouter)
 
 
 
